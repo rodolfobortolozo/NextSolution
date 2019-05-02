@@ -1,0 +1,27 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 584
+  Height = 404
+  Top = 130
+  Width = 691
+  Caption = 'Principal'
+  ClientHeight = 404
+  ClientWidth = 691
+  LCLVersion = '2.0.2.0'
+  WindowState = wsMaximized
+  object Button1: TButton
+    Left = 82
+    Height = 25
+    Top = 102
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 381
+    Width = 691
+    Panels = <>
+  end
+end

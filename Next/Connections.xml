@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<Conexoes>
+  <Conexao>
+    <Nome>DataSoft</Nome>
+    <Host>localhost</Host>
+    <Porta>5432</Porta>
+    <User>postgres</User>
+    <Password>D@taS0fT</Password>
+	<Database>datasoft</Database>
+    <LocalLib>C:\Users\Rodolfo\Desktop\DLL\libpq.dll</LocalLib>
+	<ConPadrao>S</ConPadrao>
+	<EmpPadrao>1</EmpPadrao>
+  </Conexao>
+</Conexoes>

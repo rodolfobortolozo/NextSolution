@@ -1,0 +1,80 @@
+unit untPrincipal;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  Menus, ComCtrls, StdCtrls, Buttons,
+  untBase;
+
+type
+
+  { TfrmPrincipal }
+
+  TfrmPrincipal = class(TForm)
+    Button1: TButton;
+    ComboBox1: TComboBox;
+    ImagemFrmPrincipal: TImageList;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuItem13: TMenuItem;
+    MenuItem14: TMenuItem;
+    MenuItem15: TMenuItem;
+    MenuItem16: TMenuItem;
+    MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    SpeedButton1: TSpeedButton;
+    StaticText1: TStaticText;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
+    ToolBar1: TToolBar;
+    ToolBar2: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
+    procedure Button1Click(Sender: TObject);
+
+  private
+
+  public
+
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.lfm}
+
+{ TfrmPrincipal }
+
+
+
+procedure TfrmPrincipal.Button1Click(Sender: TObject);
+begin
+    frmBase.Show;
+end;
+
+
+end.
+

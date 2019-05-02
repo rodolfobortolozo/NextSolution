@@ -1,0 +1,32 @@
+object dmPostgres: TdmPostgres
+  OldCreateOrder = False
+  Height = 288
+  HorizontalOffset = 332
+  VerticalOffset = 106
+  Width = 253
+  PPI = 96
+  object PgConexao: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    ClientCodepage = 'UTF8'
+    Catalog = 'public'
+    Properties.Strings = (
+      'codepage=UTF8'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 5432
+    Database = 'datasoft'
+    User = 'postgres'
+    Password = 'D@taS0fT'
+    Protocol = 'postgresql-9'
+    LibraryLocation = 'C:\Users\Rodolfo\Desktop\DLL\libpq.dll'
+    left = 24
+    top = 8
+  end
+  object PgMonitor: TZSQLMonitor
+    MaxTraceCount = 100
+    left = 96
+    top = 8
+  end
+end

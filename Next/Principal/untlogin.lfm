@@ -1,0 +1,180 @@
+object frmLogin: TfrmLogin
+  Left = 572
+  Height = 196
+  Top = 326
+  Width = 538
+  BorderStyle = bsNone
+  Caption = 'Login'
+  ClientHeight = 196
+  ClientWidth = 538
+  Color = clWhite
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '2.0.2.0'
+  object gbLogin: TGroupBox
+    Left = 272
+    Height = 176
+    Top = 8
+    Width = 256
+    Caption = 'Login'
+    ClientHeight = 156
+    ClientWidth = 252
+    TabOrder = 0
+    object txthost: TComboBox
+      Left = 123
+      Height = 23
+      Top = 0
+      Width = 121
+      ItemHeight = 15
+      TabOrder = 4
+    end
+    object txtlogin: TEdit
+      Left = 123
+      Height = 23
+      Top = 32
+      Width = 121
+      CharCase = ecUppercase
+      TabOrder = 0
+    end
+    object txtsenha: TEdit
+      Left = 123
+      Height = 23
+      Top = 64
+      Width = 121
+      CharCase = ecUppercase
+      EchoMode = emPassword
+      PasswordChar = '*'
+      TabOrder = 1
+    end
+    object Button1: TButton
+      Left = 88
+      Height = 25
+      Top = 128
+      Width = 75
+      Caption = 'Entrar'
+      OnClick = Button1Click
+      TabOrder = 2
+    end
+    object Button2: TButton
+      Left = 169
+      Height = 25
+      Top = 128
+      Width = 75
+      Caption = 'Sair'
+      OnClick = Button2Click
+      TabOrder = 5
+    end
+    object Label1: TLabel
+      Left = 84
+      Height = 15
+      Top = 8
+      Width = 28
+      Caption = 'Host:'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 79
+      Height = 15
+      Top = 40
+      Width = 33
+      Caption = 'Login:'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 77
+      Height = 15
+      Top = 72
+      Width = 35
+      Caption = 'Senha:'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 64
+      Height = 15
+      Top = 104
+      Width = 48
+      Caption = 'Empresa:'
+      ParentColor = False
+    end
+    object DBComboBox1: TDBComboBox
+      Left = 124
+      Height = 23
+      Top = 96
+      Width = 120
+      DataField = 'nomeresumido'
+      DataSource = DsEmpresa
+      ItemHeight = 15
+      MaxLength = 0
+      TabOrder = 3
+    end
+  end
+  object PgQueryLogin: TZReadOnlyQuery
+    Connection = dmPostgres.PgConexao
+    SortType = stDescending
+    SQL.Strings = (
+      'SELECT * FROM SE_Usuario'
+      'WHERE Usuario = :login'
+      'AND Senha = :senha'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'login'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'senha'
+        ParamType = ptUnknown
+      end>
+    left = 288
+    top = 40
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'login'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'senha'
+        ParamType = ptUnknown
+      end>
+  end
+  object PgQueryEmpresa: TZReadOnlyQuery
+    Connection = dmPostgres.PgConexao
+    SortType = stDescending
+    SQL.Strings = (
+      'SELECT '#9'e.IdEmpresa, lpad(cast(e.IdEmpresa as varchar),3,''0'')||''-''|| e.NomeResumido as NomeResumido'
+      'FROM '#9'GE_Empresa e'
+      'ORDER BY e.IdEmpresa '
+    )
+    Params = <>
+    left = 288
+    top = 88
+    object PgQueryEmpresaidempresa: TLongintField
+      FieldKind = fkData
+      FieldName = 'idempresa'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object PgQueryEmpresanomeresumido: TStringField
+      FieldKind = fkData
+      FieldName = 'nomeresumido'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 80
+    end
+  end
+  object DsEmpresa: TDataSource
+    DataSet = PgQueryEmpresa
+    left = 288
+    top = 136
+  end
+end
