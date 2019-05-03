@@ -1,23 +1,26 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 301
+  Left = 509
   Height = 516
-  Top = 119
+  Top = 163
   Width = 824
-  Caption = 'frmPrincipal'
+  Caption = 'Principal'
   ClientHeight = 496
   ClientWidth = 824
+  Color = clWindow
   Menu = MenuPrincipal
-  Position = poMainFormCenter
+  OnClose = FormClose
+  Position = poDesktopCenter
   LCLVersion = '2.0.2.0'
   WindowState = wsMaximized
   object ToolBar1: TToolBar
     Left = 0
-    Height = 60
+    Height = 64
     Top = 0
     Width = 824
     ButtonHeight = 60
     ButtonWidth = 60
     Caption = 'ToolBar1'
+    EdgeBorders = [ebTop, ebBottom]
     Images = ImagensPrincipal
     TabOrder = 0
     object ToolButton1: TToolButton
@@ -25,6 +28,7 @@ object frmPrincipal: TfrmPrincipal
       Top = 2
       Caption = 'ToolButton1'
       ImageIndex = 0
+      OnClick = ToolButton1Click
     end
     object ToolButton2: TToolButton
       Left = 61
@@ -59,6 +63,20 @@ object frmPrincipal: TfrmPrincipal
       Caption = 'ToolButton6'
       Style = tbsDivider
     end
+    object ToolButton7: TToolButton
+      Left = 196
+      Top = 2
+      Caption = 'ToolButton7'
+      ImageIndex = 4
+      OnClick = ToolButton7Click
+    end
+    object ToolButton8: TToolButton
+      Left = 256
+      Height = 60
+      Top = 2
+      Caption = 'ToolButton8'
+      Style = tbsDivider
+    end
   end
   object MenuPrincipal: TMainMenu
     left = 255
@@ -67,6 +85,7 @@ object frmPrincipal: TfrmPrincipal
       Caption = 'Cadastros'
       object MenuItem1: TMenuItem
         Caption = 'MenuItem1'
+        OnClick = MenuItem1Click
       end
     end
   end

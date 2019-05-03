@@ -1,0 +1,169 @@
+inherited frmEstado: TfrmEstado
+  Caption = 'Estados'
+  OnClose = nil
+  OnCreate = FormCreate
+  inherited ToolBar1: TToolBar
+    inherited btnNovo: TToolButton
+      OnClick = nil
+    end
+    inherited btnInserir: TToolButton
+      OnClick = btnInserirClick
+    end
+    inherited btnCancelar: TToolButton
+      OnClick = nil
+    end
+    inherited ToolButton4: TToolButton
+      Height = 50
+    end
+    inherited ToolButton5: TToolButton
+      Height = 50
+    end
+    inherited ToolButton6: TToolButton
+      Height = 50
+    end
+    inherited btnPrimeiro: TToolButton
+      OnClick = nil
+    end
+    inherited btnLimpar: TToolButton
+      OnClick = btnLimparClick
+    end
+    inherited btnProximo: TToolButton
+      OnClick = nil
+    end
+    inherited btnUltimo: TToolButton
+      OnClick = nil
+    end
+    inherited ToolButton10: TToolButton
+      Height = 50
+    end
+    inherited ToolButton13: TToolButton
+      Height = 50
+    end
+    inherited ToolButton15: TToolButton
+      Height = 50
+    end
+    inherited btnPesquisar: TToolButton
+      OnClick = btnPesquisarClick
+    end
+    inherited ToolButton1: TToolButton
+      Height = 50
+    end
+    inherited ToolButton2: TToolButton
+      Height = 50
+    end
+    inherited btnExcluir: TToolButton
+      OnClick = nil
+    end
+    inherited ToolButton3: TToolButton
+      Height = 50
+    end
+  end
+  inherited GbBase: TGroupBox
+    inherited TsPrincipal: TPageControl
+      inherited TsCadastro: TTabSheet
+        ClientHeight = 300
+        ClientWidth = 695
+        object DBEdit1: TDBEdit[0]
+          Left = 32
+          Height = 23
+          Top = 40
+          Width = 80
+          DataField = 'idestado'
+          DataSource = DsPadrao
+          Alignment = taRightJustify
+          CharCase = ecUppercase
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object DBEdit2: TDBEdit[1]
+          Left = 32
+          Height = 23
+          Top = 136
+          Width = 232
+          DataField = 'nomeestado'
+          DataSource = DsPadrao
+          CharCase = ecUppercase
+          MaxLength = 200
+          TabOrder = 1
+        end
+        object DBEdit3: TDBEdit[2]
+          Left = 32
+          Height = 23
+          Top = 88
+          Width = 80
+          DataField = 'siglaestado'
+          DataSource = DsPadrao
+          CharCase = ecUppercase
+          MaxLength = 8
+          TabOrder = 2
+        end
+        object Label1: TLabel[3]
+          Left = 27
+          Height = 15
+          Top = 25
+          Width = 42
+          Caption = 'Código:'
+          ParentColor = False
+        end
+        object Label2: TLabel[4]
+          Left = 27
+          Height = 15
+          Top = 72
+          Width = 28
+          Caption = 'Sigla:'
+          ParentColor = False
+        end
+        object Label3: TLabel[5]
+          Left = 27
+          Height = 15
+          Top = 120
+          Width = 74
+          Caption = 'Nome Estado:'
+          ParentColor = False
+        end
+      end
+    end
+  end
+  inherited DsPadrao: TDataSource
+    DataSet = QueryEstados
+    OnStateChange = nil
+  end
+  object QueryEstados: TZQuery[4]
+    Connection = dmPostgres.PgConexao
+    SQL.Strings = (
+      'SELECT * FROM GE_Estado'
+    )
+    Params = <>
+    left = 666
+    top = 122
+    object QueryEstadosidestado: TLongintField
+      FieldKind = fkData
+      FieldName = 'idestado'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryEstadossiglaestado: TStringField
+      FieldKind = fkData
+      FieldName = 'siglaestado'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object QueryEstadosnomeestado: TStringField
+      FieldKind = fkData
+      FieldName = 'nomeestado'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+  end
+end

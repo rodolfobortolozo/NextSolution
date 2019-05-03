@@ -1,11 +1,12 @@
 object frmBase: TfrmBase
-  Left = 541
-  Height = 370
-  Top = 221
-  Width = 641
+  Left = 918
+  Height = 406
+  Top = 248
+  Width = 736
   Caption = 'Frmbase'
-  ClientHeight = 370
-  ClientWidth = 641
+  ClientHeight = 406
+  ClientWidth = 736
+  OnClose = FormClose
   OnCreate = FormCreate
   Position = poDesktopCenter
   LCLVersion = '2.0.2.0'
@@ -13,7 +14,7 @@ object frmBase: TfrmBase
     Left = 1
     Height = 52
     Top = 1
-    Width = 639
+    Width = 734
     BorderSpacing.Around = 1
     ButtonHeight = 50
     ButtonWidth = 50
@@ -22,143 +23,187 @@ object frmBase: TfrmBase
     Images = ImagensFrmBase
     ShowCaptions = True
     TabOrder = 0
-    object ToolButton1: TToolButton
-      Left = 56
+    object btnNovo: TToolButton
+      Left = 119
       Top = 0
       Caption = 'Novo'
       ImageIndex = 7
+      OnClick = btnNovoClick
     end
-    object ToolButton2: TToolButton
-      Left = 111
+    object btnInserir: TToolButton
+      Left = 174
       Top = 0
       Caption = 'Cadastrar'
       ImageIndex = 1
+      OnClick = btnInserirClick
     end
-    object ToolButton3: TToolButton
-      Left = 174
+    object btnCancelar: TToolButton
+      Left = 237
       Top = 0
       Caption = 'Cancelar'
       ImageIndex = 2
+      OnClick = btnCancelarClick
     end
     object ToolButton4: TToolButton
-      Left = 106
+      Left = 169
       Height = 50
       Top = 0
       Caption = 'ToolButton4'
       Style = tbsDivider
     end
     object ToolButton5: TToolButton
-      Left = 169
+      Left = 232
       Height = 50
       Top = 0
       Caption = 'ToolButton5'
       Style = tbsDivider
     end
     object ToolButton6: TToolButton
-      Left = 228
+      Left = 291
       Height = 50
       Top = 0
       Caption = 'ToolButton6'
       Style = tbsDivider
     end
-    object ToolButton7: TToolButton
-      Left = 233
+    object btnPrimeiro: TToolButton
+      Left = 351
       Top = 0
       Caption = 'Primeiro'
       ImageIndex = 9
+      OnClick = btnPrimeiroClick
     end
-    object ToolButton9: TToolButton
+    object btnLimpar: TToolButton
       Left = 1
       Top = 0
       Caption = 'Limpar'
       ImageIndex = 5
     end
-    object ToolButton11: TToolButton
-      Left = 337
+    object btnProximo: TToolButton
+      Left = 455
       Top = 0
       Caption = 'Próximo'
       ImageIndex = 10
+      OnClick = btnProximoClick
     end
-    object ToolButton12: TToolButton
-      Left = 286
+    object btnAnterior: TToolButton
+      Left = 404
       Top = 0
       Caption = 'Anterior'
       ImageIndex = 0
+      OnClick = btnAnteriorClick
     end
-    object ToolButton8: TToolButton
-      Left = 389
+    object btnUltimo: TToolButton
+      Left = 507
       Top = 0
       Caption = 'Último'
       ImageIndex = 12
+      OnClick = btnUltimoClick
     end
     object ToolButton10: TToolButton
-      Left = 51
+      Left = 114
       Height = 50
       Top = 0
       Caption = 'ToolButton10'
       Style = tbsDivider
     end
-    object ToolButton14: TToolButton
-      Left = 444
+    object btnRelatorio: TToolButton
+      Left = 562
       Top = 0
       Caption = 'Relatório'
       ImageIndex = 4
     end
     object ToolButton13: TToolButton
-      Left = 439
+      Left = 557
       Height = 50
       Top = 0
       Caption = 'ToolButton13'
       Style = tbsDivider
     end
     object ToolButton15: TToolButton
-      Left = 499
+      Left = 617
       Height = 50
       Top = 0
       Caption = 'ToolButton15'
       Style = tbsDivider
     end
-    object ToolButton16: TToolButton
-      Left = 504
+    object btnSair: TToolButton
+      Left = 622
       Top = 0
       Caption = 'Sair'
       ImageIndex = 11
-      OnClick = ToolButton16Click
+      OnClick = btnSairClick
     end
-    object ToolButton17: TToolButton
-      Left = 562
+    object btnLog: TToolButton
+      Left = 677
       Top = 0
       Caption = 'Log'
       ImageIndex = 6
     end
-    object ToolButton18: TToolButton
-      Left = 554
+    object btnPesquisar: TToolButton
+      Left = 56
+      Top = 0
+      Caption = 'Pesquisar'
+      ImageIndex = 8
+      OnClick = btnPesquisarClick
+    end
+    object ToolButton1: TToolButton
+      Left = 672
       Height = 50
       Top = 0
-      Caption = 'ToolButton18'
-      Style = tbsSeparator
+      Caption = 'ToolButton1'
+      Style = tbsDivider
+    end
+    object ToolButton2: TToolButton
+      Left = 51
+      Height = 50
+      Top = 0
+      Caption = 'ToolButton2'
+      Style = tbsDivider
+    end
+    object btnExcluir: TToolButton
+      Left = 296
+      Top = 0
+      Caption = 'Excluir'
+      ImageIndex = 3
+      OnClick = btnExcluirClick
+    end
+    object ToolButton3: TToolButton
+      Left = 346
+      Height = 50
+      Top = 0
+      Caption = 'ToolButton3'
+      Style = tbsDivider
     end
   end
-  object TsPrincipal: TPageControl
-    Left = 2
-    Height = 312
+  object GbBase: TGroupBox
+    Left = 8
+    Height = 344
     Top = 56
-    Width = 639
-    ActivePage = TsCadastro
-    TabIndex = 0
+    Width = 720
+    ClientHeight = 324
+    ClientWidth = 716
     TabOrder = 1
-    object TsCadastro: TTabSheet
-      Caption = 'Cadastro'
-    end
-    object tsconsulta: TTabSheet
-      Caption = 'Consulta'
+    object TsPrincipal: TPageControl
+      Left = 8
+      Height = 328
+      Top = -8
+      Width = 703
+      ActivePage = TsCadastro
+      TabIndex = 0
+      TabOrder = 0
+      object TsCadastro: TTabSheet
+        Caption = 'Consulta'
+      end
+      object TsConsulta: TTabSheet
+        Caption = 'Consulta'
+      end
     end
   end
   object ImagensFrmBase: TImageList
     Height = 28
     Width = 28
     left = 592
-    top = 304
+    top = 64
     Bitmap = {
       4C690D0000001C0000001C000000CACACB00CACACB00CBCBCC00CDCDCE00CDCD
       CE00CCCCCD00CBCBCC00CCCCCD04CBCBCC13CDCDCE32D4D4D56DDCDCDDA2E2E1
@@ -1436,5 +1481,10 @@ object frmBase: TfrmBase
       E7A2DEDEDF6DD7D7D732D3D3D413D2D2D304D0D0D100CFCFD000CDCDCE00CBCB
       CC00C9C9CA00C8C8C900C8C8C900
     }
+  end
+  object DsPadrao: TDataSource
+    OnStateChange = DsPadraoStateChange
+    left = 504
+    top = 64
   end
 end

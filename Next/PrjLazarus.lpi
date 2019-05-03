@@ -52,7 +52,7 @@
         <PackageName Value="LCL"/>
       </Item8>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="PrjLazarus.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -85,9 +85,18 @@
         <Filename Value="Principal\untprincipal.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPrincipal"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="untPrincipal"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="Geral\untestado.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEstado"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untEstado"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -98,7 +107,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="Principal"/>
+      <OtherUnitFiles Value="Principal;Geral"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

@@ -112,9 +112,9 @@ object frmLogin: TfrmLogin
     Connection = dmPostgres.PgConexao
     SortType = stDescending
     SQL.Strings = (
-      'SELECT * FROM GE_USUARIO'
-      'WHERE USUARIO = :login'
-      'AND SENHA = :senha'
+      'SELECT * FROM SE_Usuario'
+      'WHERE Usuario = :login'
+      'AND Senha = :senha'
     )
     Params = <    
       item

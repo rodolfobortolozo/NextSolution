@@ -71,7 +71,7 @@ begin
   else
   begin
     frmPrincipal.ShowModal;
-    frmLogin.Close;
+    frmLogin.Hide;
     //ShowMessage('OK');
   end;
 end;
