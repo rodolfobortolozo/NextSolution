@@ -98,7 +98,7 @@ begin
   else if Sender is TDBComboBox then
     TDBComboBox(Sender).Color := clWindow
   else if Sender is TDBMemo then
-    TDBMemo(Sender).Color := clWindow;
+    TDBMemo(Sender).Color := clWindow
 end;
 
 procedure TfrmBase.HabilitaControles();
@@ -146,7 +146,7 @@ end;
 
 procedure TfrmBase.btnSairClick(Sender: TObject);
 begin
-  frmBase.Free;
+  Close;
 end;
 
 procedure TfrmBase.FormCreate(Sender: TObject);

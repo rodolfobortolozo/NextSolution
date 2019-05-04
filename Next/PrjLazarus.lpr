@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, tachartlazaruspkg, runtimetypeinfocontrols, pascalscript, zcomponent,
+  Forms, runtimetypeinfocontrols, pascalscript, zcomponent,
   untLogin, dmPrincipal, untBase, untPrincipal, untEstado;
 
 {$R *.res}

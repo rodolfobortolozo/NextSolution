@@ -51,7 +51,7 @@ implementation
 procedure TfrmEstado.FormCreate(Sender: TObject);
 begin
   inherited;
-   //ativar a query pois da erro de
+    //ativar a query pois da erro de
   //operation cannot be performed on an inactive data set se ela tiver ativa
    queryestados.Active:=True;
 

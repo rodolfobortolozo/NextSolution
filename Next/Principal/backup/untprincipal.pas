@@ -6,6 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ComCtrls,
+  ExtCtrls, TDIClass,
   //forms do sistema
   untBase, untEstado
   ;
@@ -16,9 +17,13 @@ type
 
   TfrmPrincipal = class(TForm)
     Cadastros: TMenuItem;
+    ImagensTDI: TImageList;
     ImagensPrincipal: TImageList;
     MenuItem1: TMenuItem;
+    MiCidades: TMenuItem;
+    miEstados: TMenuItem;
     MenuPrincipal: TMainMenu;
+    TdiPrincipal: TTDINoteBook;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
@@ -29,7 +34,8 @@ type
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure MenuItem1Click(Sender: TObject);
+    procedure miEstadosClick(Sender: TObject);
+    procedure ToolBar1Click(Sender: TObject);
     procedure ToolButton1Click(Sender: TObject);
     procedure ToolButton7Click(Sender: TObject);
   private
@@ -49,7 +55,8 @@ implementation
 
 procedure TfrmPrincipal.ToolButton1Click(Sender: TObject);
 begin
-  frmEstado.showmodal;
+  //frmEstado.showmodal;
+  TdiPrincipal.CreateFormInNewPage( TfrmEstado ,3 );
 end;
 
 procedure TfrmPrincipal.FormClose(Sender: TObject; var CloseAction: TCloseAction
@@ -58,7 +65,12 @@ begin
   halt(0);
 end;
 
-procedure TfrmPrincipal.MenuItem1Click(Sender: TObject);
+procedure TfrmPrincipal.miEstadosClick(Sender: TObject);
+begin
+  frmEstado.showmodal;
+end;
+
+procedure TfrmPrincipal.ToolBar1Click(Sender: TObject);
 begin
 
 end;

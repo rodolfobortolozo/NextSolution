@@ -13,18 +13,20 @@ object dmPostgres: TdmPostgres
     Properties.Strings = (
       'codepage=UTF8'
     )
-    Connected = True
     HostName = 'localhost'
     Port = 5432
     Database = 'datasoft'
     User = 'postgres'
     Password = 'D@taS0fT'
     Protocol = 'postgresql-9'
-    LibraryLocation = 'C:\Users\Rodolfo\Desktop\DLL\libpq.dll'
+    LibraryLocation = 'D:\Projeto\NextSolutions\DLL\libpq.dll'
     left = 24
     top = 8
   end
   object PgMonitor: TZSQLMonitor
+    Active = True
+    AutoSave = True
+    FileName = 'D:\Projeto\NextSolutions\Analise Banco\Teste.txt'
     MaxTraceCount = 100
     left = 96
     top = 8

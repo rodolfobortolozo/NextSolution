@@ -1,0 +1,50 @@
+2019-05-04 08:37:22 cat: Connect, proto: postgresql-9, msg: CONNECT TO "datasoft" AS USER "postgres"
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: select setting from pg_settings where name = 'standard_conforming_strings'
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: select setting from pg_settings where name = 'bytea_output'
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: SELECT version()
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ COMMITTED
+2019-05-04 08:37:22 cat: Prepare, proto: postgresql-9, msg: Statement 1 : SELECT 	e.IdEmpresa, lpad(cast(e.IdEmpresa as varchar),3,'0')||'-'|| e.NomeResumido as NomeResumido
+FROM 	GE_Empresa e
+ORDER BY e.IdEmpresa 
+
+2019-05-04 08:37:22 cat: Execute prepared, proto: postgresql-9, msg: Statement 1
+2019-05-04 08:37:22 cat: Prepare, proto: postgresql-9, msg: Statement 2 : SELECT n.nspname,c.relname,a.attname,a.atttypid,a.attnotnull,a.atttypmod,a.attlen,a.attnum,pg_get_expr(def.adbin, def.adrelid) as adsrc,dsc.description, dn.nspname as cnspname FROM pg_catalog.pg_namespace n  JOIN pg_catalog.pg_class c ON (c.relnamespace = n.oid)  JOIN pg_catalog.pg_attribute a ON (a.attrelid=c.oid)  LEFT JOIN pg_catalog.pg_attrdef def ON (a.attrelid=def.adrelid AND a.attnum = def.adnum) LEFT JOIN pg_catalog.pg_description dsc ON (c.oid=dsc.objoid AND a.attnum = dsc.objsubid)  LEFT JOIN pg_catalog.pg_class dc ON (dc.oid=dsc.classoid AND dc.relname='pg_class')  LEFT JOIN pg_catalog.pg_namespace dn ON (dc.relnamespace=dn.oid AND dn.nspname='pg_catalog')  WHERE a.attnum > 0 AND c.oid = 16510 ORDER BY nspname,relname,attnum
+2019-05-04 08:37:22 cat: Execute prepared, proto: postgresql-9, msg: Statement 2
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: 
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "21697492961";
+2019-05-04 08:37:22 cat: Prepare, proto: postgresql-9, msg: Statement 3 : SELECT n.nspname,c.relname,a.attname,a.atttypid,a.attnotnull,a.atttypmod,a.attlen,a.attnum,pg_get_expr(def.adbin, def.adrelid) as adsrc,dsc.description, dn.nspname as cnspname FROM pg_catalog.pg_namespace n  JOIN pg_catalog.pg_class c ON (c.relnamespace = n.oid)  JOIN pg_catalog.pg_attribute a ON (a.attrelid=c.oid)  LEFT JOIN pg_catalog.pg_attrdef def ON (a.attrelid=def.adrelid AND a.attnum = def.adnum) LEFT JOIN pg_catalog.pg_description dsc ON (c.oid=dsc.objoid AND a.attnum = dsc.objsubid)  LEFT JOIN pg_catalog.pg_class dc ON (dc.oid=dsc.classoid AND dc.relname='pg_class')  LEFT JOIN pg_catalog.pg_namespace dn ON (dc.relnamespace=dn.oid AND dn.nspname='pg_catalog')  WHERE a.attnum > 0 AND c.oid = 0 ORDER BY nspname,relname,attnum
+2019-05-04 08:37:22 cat: Execute prepared, proto: postgresql-9, msg: Statement 3
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "31697492961";
+2019-05-04 08:37:22 cat: Prepare, proto: postgresql-9, msg: Statement 4 : SELECT * FROM GE_Estado
+
+2019-05-04 08:37:22 cat: Execute prepared, proto: postgresql-9, msg: Statement 4
+2019-05-04 08:37:22 cat: Prepare, proto: postgresql-9, msg: Statement 5 : SELECT n.nspname,c.relname,a.attname,a.atttypid,a.attnotnull,a.atttypmod,a.attlen,a.attnum,pg_get_expr(def.adbin, def.adrelid) as adsrc,dsc.description, dn.nspname as cnspname FROM pg_catalog.pg_namespace n  JOIN pg_catalog.pg_class c ON (c.relnamespace = n.oid)  JOIN pg_catalog.pg_attribute a ON (a.attrelid=c.oid)  LEFT JOIN pg_catalog.pg_attrdef def ON (a.attrelid=def.adrelid AND a.attnum = def.adnum) LEFT JOIN pg_catalog.pg_description dsc ON (c.oid=dsc.objoid AND a.attnum = dsc.objsubid)  LEFT JOIN pg_catalog.pg_class dc ON (dc.oid=dsc.classoid AND dc.relname='pg_class')  LEFT JOIN pg_catalog.pg_namespace dn ON (dc.relnamespace=dn.oid AND dn.nspname='pg_catalog')  WHERE a.attnum > 0 AND c.oid = 16427 ORDER BY nspname,relname,attnum
+2019-05-04 08:37:22 cat: Execute prepared, proto: postgresql-9, msg: Statement 5
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "51697492961";
+2019-05-04 08:37:22 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "41697492961";
+2019-05-04 08:37:22 cat: Prepare, proto: postgresql-9, msg: Statement 6 : SELECT * FROM GE_Estado WHERE 0>0
+
+2019-05-04 08:37:22 cat: Execute prepared, proto: postgresql-9, msg: Statement 6
+2019-05-04 08:37:25 cat: Prepare, proto: postgresql-9, msg: Statement 7 : SELECT * FROM SE_Usuario WHERE Usuario = ? AND Senha = ?
+2019-05-04 08:37:25 cat: Bind prepared, proto: postgresql-9, msg: Statement 7 : 'ADM','ADM',
+2019-05-04 08:37:25 cat: Execute prepared, proto: postgresql-9, msg: Statement 7
+2019-05-04 08:37:25 cat: Prepare, proto: postgresql-9, msg: Statement 8 : SELECT n.nspname,c.relname,a.attname,a.atttypid,a.attnotnull,a.atttypmod,a.attlen,a.attnum,pg_get_expr(def.adbin, def.adrelid) as adsrc,dsc.description, dn.nspname as cnspname FROM pg_catalog.pg_namespace n  JOIN pg_catalog.pg_class c ON (c.relnamespace = n.oid)  JOIN pg_catalog.pg_attribute a ON (a.attrelid=c.oid)  LEFT JOIN pg_catalog.pg_attrdef def ON (a.attrelid=def.adrelid AND a.attnum = def.adnum) LEFT JOIN pg_catalog.pg_description dsc ON (c.oid=dsc.objoid AND a.attnum = dsc.objsubid)  LEFT JOIN pg_catalog.pg_class dc ON (dc.oid=dsc.classoid AND dc.relname='pg_class')  LEFT JOIN pg_catalog.pg_namespace dn ON (dc.relnamespace=dn.oid AND dn.nspname='pg_catalog')  WHERE a.attnum > 0 AND c.oid = 16501 ORDER BY nspname,relname,attnum
+2019-05-04 08:37:25 cat: Execute prepared, proto: postgresql-9, msg: Statement 8
+2019-05-04 08:37:25 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "81697492961";
+2019-05-04 08:37:27 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "61697492961";
+2019-05-04 08:37:27 cat: Prepare, proto: postgresql-9, msg: Statement 9 : SELECT * FROM GE_Estado WHERE 0=0 ORDER BY IdEstado ASC
+
+2019-05-04 08:37:27 cat: Execute prepared, proto: postgresql-9, msg: Statement 9
+2019-05-04 08:37:27 cat: Execute prepared, proto: postgresql-9, msg: Statement 9
+2019-05-04 08:37:30 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "91697492961";
+2019-05-04 08:37:30 cat: Prepare, proto: postgresql-9, msg: Statement 10 : SELECT * FROM GE_Estado WHERE 0>0
+
+2019-05-04 08:37:30 cat: Execute prepared, proto: postgresql-9, msg: Statement 10
+2019-05-04 08:37:33 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "101697492961";
+2019-05-04 08:37:33 cat: Prepare, proto: postgresql-9, msg: Statement 11 : SELECT * FROM GE_Estado WHERE 0=0 AND siglaestado like'SP%' ORDER BY IdEstado ASC
+
+2019-05-04 08:37:33 cat: Execute prepared, proto: postgresql-9, msg: Statement 11
+2019-05-04 08:37:33 cat: Execute prepared, proto: postgresql-9, msg: Statement 11
+2019-05-04 08:37:35 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "111697492961";
+2019-05-04 08:37:35 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "11697492961";
+2019-05-04 08:37:35 cat: Execute, proto: postgresql-9, msg: DEALLOCATE "71697492961";

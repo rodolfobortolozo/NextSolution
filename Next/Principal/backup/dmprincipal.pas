@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, ZConnection, ZPgEventAlerter, ZSqlMonitor, ZDataset,
-  pqconnection, sqldb, untBase;
+  pqconnection, sqldb;
 
 type
 

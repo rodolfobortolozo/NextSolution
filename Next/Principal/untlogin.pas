@@ -98,7 +98,7 @@ begin
   _Senha     :='D@taS0fT';
   _Catalog   :='public';
   _Database  :='datasoft';
-  _LocalLib  :='C:\Users\Rodolfo\Desktop\DLL\libpq.dll';
+  _LocalLib  :='D:\Projeto\NextSolutions\DLL\libpq.dll';
   _ConPadrao :='S';
   _EmpPadrao :=1;
   //dmPostgres.PgConexao.Create(nil);

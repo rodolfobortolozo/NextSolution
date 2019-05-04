@@ -77,6 +77,8 @@ inherited frmEstado: TfrmEstado
       ActivePage = TsConsulta
       TabIndex = 1
       inherited TsCadastro: TTabSheet
+        ClientHeight = 0
+        ClientWidth = 0
         object txtIdEstado: TDBEdit[0]
           Left = 32
           Height = 23

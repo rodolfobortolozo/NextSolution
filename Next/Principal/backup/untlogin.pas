@@ -66,8 +66,7 @@ begin
 
   if PgQueryLogin.IsEmpty then
   begin
-    MessageDlg('Usuário ou senha incorretos!', mtError, [mbYes, mbNo], 0)
-    txtlogin.SetFocus();
+    MessageDlg('Usuário ou senha incorretos!', mtError, [mbYes, mbNo], 0);
     //ShowMessage('A senha está incorreta!');
   end
   else
