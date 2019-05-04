@@ -46,7 +46,6 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
-    procedure btnPesquisarClick(Sender: TObject);
     procedure btnPrimeiroClick(Sender: TObject);
     procedure btnProximoClick(Sender: TObject);
     procedure btnUltimoClick(Sender: TObject);
@@ -60,7 +59,7 @@ type
     //PROCEDURE PADRAO PARA ALTERAR COR
     procedure ChangeEnter(Sender: TObject);
     procedure ChangeExit(Sender: TObject);
-    //botoes padrao ativar e desativar
+    //PROCEDURE PADRAO PARA AIVAR OS BOTÕES
     procedure HabilitaControles();
 
   public
@@ -102,18 +101,13 @@ begin
     TDBMemo(Sender).Color := clWindow;
 end;
 
-procedure TfrmBase.btnSairClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmBase.HabilitaControles();
 begin
   if DSPadrao.DataSet.State in [dsInsert] then
     begin
-     btnInserir.Enabled    :=False;
+     btnCancelar.Enabled    :=False;
      btnPesquisar.Enabled   :=True;
-     btnLimpar.Enabled        :=True;
+     btnNovo.Enabled        :=True;
      btnInserir.Enabled     :=True;
      btnExcluir.Enabled     :=False;
      btnPrimeiro.Enabled    :=False;
@@ -124,9 +118,9 @@ begin
     end
   else if (DSPadrao.DataSet.State in [dsBrowse]) then
     begin
-     btnInserir.Enabled     :=False;
+     btnCancelar.Enabled    :=False;
      btnPesquisar.Enabled   :=False;
-     btnLimpar.Enabled      :=False;
+     btnNovo.Enabled        :=False;
      btnInserir.Enabled     :=False;
      btnExcluir.Enabled     :=True;
      btnPrimeiro.Enabled    :=True;
@@ -136,9 +130,9 @@ begin
      btnLimpar.Enabled      :=True;
     end else  if DSPadrao.DataSet.State in [dsEdit] then
     begin
-     btnInserir.Enabled     :=True;
+     btnCancelar.Enabled    :=True;
      btnPesquisar.Enabled   :=False;
-     btnLimpar.Enabled      :=False;
+     btnNovo.Enabled        :=False;
      btnInserir.Enabled     :=True;
      btnExcluir.Enabled     :=False;
      btnPrimeiro.Enabled    :=False;
@@ -150,10 +144,44 @@ begin
 
 end;
 
+procedure TfrmBase.btnSairClick(Sender: TObject);
+begin
+  frmBase.Free;
+end;
+
 procedure TfrmBase.FormCreate(Sender: TObject);
+var
+ I: Integer;
 begin
   //Sempre inicializar pela de cadastro
   TsPrincipal.ActivePage:=TsCadastro;
+  //alterar cor dos campos
+  for I := 0 to ComponentCount - 1 do
+  begin
+    if Components[I] is TDBEdit then
+    begin
+      TDBEdit(Components[I]).OnEnter  := @ChangeEnter;
+      TDBEdit(Components[I]).OnExit   := @ChangeExit;
+    end
+    else
+    if Components[I] is TDBLookupComboBox then
+    begin
+      TDBLookupComboBox(Components[I]).OnEnter := @ChangeEnter;
+      TDBLookupComboBox(Components[I]).OnExit  := @ChangeExit;
+    end
+    else
+    if Components[I] is TDBComboBox then
+    begin
+      TDBComboBox(Components[I]).OnEnter := @ChangeEnter;
+      TDBComboBox(Components[I]).OnExit  := @ChangeExit;
+    end
+    else
+    if Components[I] is TDBMemo then
+    begin
+      TDBMemo(Components[I]).OnEnter   := @ChangeEnter;
+      TDBMemo(Components[I]).OnExit    := @ChangeExit;
+    end
+  end;
 end;
 
 
@@ -164,10 +192,6 @@ begin
     HabilitaControles;
 end;
 
-procedure TfrmBase.btnPesquisarClick(Sender: TObject);
-begin
-
-end;
 
 procedure TfrmBase.btnPrimeiroClick(Sender: TObject);
 begin
@@ -192,6 +216,8 @@ end;
 procedure TfrmBase.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   DSPadrao.DataSet.Close;
+  DsPadrao.DataSet.ClearFields;
+  TsPrincipal.ActivePage:=TsCadastro;
 end;
 
 procedure TfrmBase.btnCancelarClick(Sender: TObject);
@@ -214,13 +240,13 @@ end;
 
 procedure TfrmBase.btnInserirClick(Sender: TObject);
 begin
-      DSPadrao.dataset.post;
-    HabilitaControles;
+     DSPadrao.dataset.post;
+     HabilitaControles;
 end;
 
 procedure TfrmBase.btnAnteriorClick(Sender: TObject);
 begin
-  DSPadrao.dataset.prior;
+DSPadrao.dataset.prior;
 end;
 
 end.

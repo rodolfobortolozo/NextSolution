@@ -1,7 +1,7 @@
 object frmBase: TfrmBase
-  Left = 918
+  Left = 938
   Height = 406
-  Top = 248
+  Top = 212
   Width = 736
   Caption = 'Frmbase'
   ClientHeight = 406
@@ -33,12 +33,12 @@ object frmBase: TfrmBase
     object btnInserir: TToolButton
       Left = 174
       Top = 0
-      Caption = 'Cadastrar'
+      Caption = 'Salvar'
       ImageIndex = 1
       OnClick = btnInserirClick
     end
     object btnCancelar: TToolButton
-      Left = 237
+      Left = 229
       Top = 0
       Caption = 'Cancelar'
       ImageIndex = 2
@@ -52,21 +52,21 @@ object frmBase: TfrmBase
       Style = tbsDivider
     end
     object ToolButton5: TToolButton
-      Left = 232
+      Left = 224
       Height = 50
       Top = 0
       Caption = 'ToolButton5'
       Style = tbsDivider
     end
     object ToolButton6: TToolButton
-      Left = 291
+      Left = 283
       Height = 50
       Top = 0
       Caption = 'ToolButton6'
       Style = tbsDivider
     end
     object btnPrimeiro: TToolButton
-      Left = 351
+      Left = 343
       Top = 0
       Caption = 'Primeiro'
       ImageIndex = 9
@@ -79,21 +79,21 @@ object frmBase: TfrmBase
       ImageIndex = 5
     end
     object btnProximo: TToolButton
-      Left = 455
+      Left = 447
       Top = 0
       Caption = 'Próximo'
       ImageIndex = 10
       OnClick = btnProximoClick
     end
     object btnAnterior: TToolButton
-      Left = 404
+      Left = 396
       Top = 0
       Caption = 'Anterior'
       ImageIndex = 0
       OnClick = btnAnteriorClick
     end
     object btnUltimo: TToolButton
-      Left = 507
+      Left = 499
       Top = 0
       Caption = 'Último'
       ImageIndex = 12
@@ -107,34 +107,34 @@ object frmBase: TfrmBase
       Style = tbsDivider
     end
     object btnRelatorio: TToolButton
-      Left = 562
+      Left = 554
       Top = 0
       Caption = 'Relatório'
       ImageIndex = 4
     end
     object ToolButton13: TToolButton
-      Left = 557
+      Left = 549
       Height = 50
       Top = 0
       Caption = 'ToolButton13'
       Style = tbsDivider
     end
     object ToolButton15: TToolButton
-      Left = 617
+      Left = 609
       Height = 50
       Top = 0
       Caption = 'ToolButton15'
       Style = tbsDivider
     end
     object btnSair: TToolButton
-      Left = 622
+      Left = 614
       Top = 0
       Caption = 'Sair'
       ImageIndex = 11
       OnClick = btnSairClick
     end
     object btnLog: TToolButton
-      Left = 677
+      Left = 669
       Top = 0
       Caption = 'Log'
       ImageIndex = 6
@@ -144,10 +144,9 @@ object frmBase: TfrmBase
       Top = 0
       Caption = 'Pesquisar'
       ImageIndex = 8
-      OnClick = btnPesquisarClick
     end
     object ToolButton1: TToolButton
-      Left = 672
+      Left = 664
       Height = 50
       Top = 0
       Caption = 'ToolButton1'
@@ -161,14 +160,14 @@ object frmBase: TfrmBase
       Style = tbsDivider
     end
     object btnExcluir: TToolButton
-      Left = 296
+      Left = 288
       Top = 0
       Caption = 'Excluir'
       ImageIndex = 3
       OnClick = btnExcluirClick
     end
     object ToolButton3: TToolButton
-      Left = 346
+      Left = 338
       Height = 50
       Top = 0
       Caption = 'ToolButton3'

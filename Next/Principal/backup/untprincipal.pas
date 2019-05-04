@@ -49,7 +49,7 @@ implementation
 
 procedure TfrmPrincipal.ToolButton1Click(Sender: TObject);
 begin
-  frmBase.showmodal;
+  frmEstado.showmodal;
 end;
 
 procedure TfrmPrincipal.FormClose(Sender: TObject; var CloseAction: TCloseAction

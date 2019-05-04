@@ -6,16 +6,17 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, StdCtrls,
-  DBCtrls, ZDataset, untBase, db;
+  DBCtrls, DBGrids, ZDataset, ZSqlUpdate, untBase, db;
 
 type
 
   { TfrmEstado }
 
   TfrmEstado = class(TfrmBase)
-    DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
+    txtIdEstado: TDBEdit;
+    txtNomeEstado: TDBEdit;
+    txtSigla: TDBEdit;
+    DBGrid1: TDBGrid;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -23,8 +24,14 @@ type
     QueryEstadosidestado: TLongintField;
     QueryEstadosnomeestado: TStringField;
     QueryEstadossiglaestado: TStringField;
+    procedure btnAnteriorClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure btnPrimeiroClick(Sender: TObject);
+    procedure btnProximoClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure btnUltimoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
 
@@ -41,44 +48,6 @@ implementation
 
 { TfrmEstado }
 
-procedure TfrmEstado.btnLimparClick(Sender: TObject);
-begin
-  inherited;
-  //pra entrar no modo de inserção
-  queryestados.Close;
-  queryestados.SQL.Clear;
-  queryestados.SQL.Add('SELECT * FROM GE_Estado WHERE 0>0');
-  queryestados.Open;
-  DSPadrao.DataSet.Insert();
-end;
-
-procedure TfrmEstado.btnPesquisarClick(Sender: TObject);
-  var
-  sqlwhere : String;
-  i : Integer;
-begin
-  inherited;
-    sqlwhere := ' WHERE 0=0';
-  //monta sql para pesquisa
-  for i:=0 to queryestados.Fields.Count-1 do
-  begin
-    if (DSPadrao.DataSet.Fields[i].AsString<>'')then
-        if (DSPadrao.DataSet.Fields[i].FieldName='IdEstado') then
-            sqlwhere := sqlwhere +' AND '+
-            DSPadrao.DataSet.Fields[i].FieldName+' ='''+
-            DSPadrao.DataSet.Fields[i].AsString + ''''
-        else
-            sqlwhere := sqlwhere +' AND '+
-            DSPadrao.DataSet.Fields[i].FieldName+' like'''+
-            DSPadrao.DataSet.Fields[i].AsString + '%''';
-  end;
-   //faz a pesquisa
-  queryestados.Close;
-  queryestados.SQL.Clear;
-  queryestados.SQL.Add('SELECT * FROM GE_Estado'+sqlwhere+' ORDER BY IdEstado ASC');
-  queryestados.Open;
-end;
-
 procedure TfrmEstado.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -93,6 +62,76 @@ begin
   queryestados.Open;
   DSPadrao.DataSet.Insert();
 end;
+
+procedure TfrmEstado.btnLimparClick(Sender: TObject);
+begin
+  inherited;
+  //pra entrar no modo de inserção
+  queryestados.Close;
+  queryestados.SQL.Clear;
+  queryestados.SQL.Add('SELECT * FROM GE_Estado WHERE 0>0');
+  queryestados.Open;
+  DSPadrao.DataSet.Insert();
+end;
+
+procedure TfrmEstado.btnPesquisarClick(Sender: TObject);
+  var
+  sqlwhere : String;
+  i        : Integer;
+begin
+  //Where Padrão para Pesquisa
+  sqlwhere := ' WHERE 0=0';
+  //Monta sql de pesquisa
+  for i:=0 to QueryEstados.Fields.Count-1 do
+  begin
+    if (DSPadrao.DataSet.Fields[i].AsString<>'')then
+        if (DSPadrao.DataSet.Fields[i].FieldName='idestado') then
+            sqlwhere := sqlwhere +' AND '+
+            DSPadrao.DataSet.Fields[i].FieldName+' ='''+
+            DSPadrao.DataSet.Fields[i].AsString + ''''
+        else
+            sqlwhere := sqlwhere +' AND '+
+            DSPadrao.DataSet.Fields[i].FieldName+' like'''+
+            DSPadrao.DataSet.Fields[i].AsString + '%''';
+    end;
+   //Executa a pesquisa
+  queryestados.Close;
+  queryestados.SQL.Clear;
+  queryestados.SQL.Add('SELECT * FROM GE_Estado'+sqlwhere+' ORDER BY IdEstado ASC');
+  QueryEstados.ExecSQL;
+  QueryEstados.Open;
+end;
+procedure TfrmEstado.btnCancelarClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+procedure TfrmEstado.btnAnteriorClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+procedure TfrmEstado.btnPrimeiroClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+procedure TfrmEstado.btnProximoClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+procedure TfrmEstado.btnSairClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+procedure TfrmEstado.btnUltimoClick(Sender: TObject);
+begin
+  inherited;
+end;
+
+
 
 end.
 

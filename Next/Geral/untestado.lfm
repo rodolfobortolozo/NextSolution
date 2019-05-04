@@ -1,73 +1,87 @@
 inherited frmEstado: TfrmEstado
-  Caption = 'Estados'
+  Left = 692
+  Top = 246
+  Caption = 'Cadastro de Estados'
   OnClose = nil
   OnCreate = FormCreate
+  Position = poMainFormCenter
   inherited ToolBar1: TToolBar
     inherited btnNovo: TToolButton
-      OnClick = nil
+      OnClick = btnNovoClick
     end
     inherited btnInserir: TToolButton
+      Caption = 'Cadastrar'
       OnClick = btnInserirClick
     end
     inherited btnCancelar: TToolButton
-      OnClick = nil
-    end
-    inherited ToolButton4: TToolButton
-      Height = 50
+      Left = 237
+      OnClick = btnCancelarClick
     end
     inherited ToolButton5: TToolButton
-      Height = 50
+      Left = 232
     end
     inherited ToolButton6: TToolButton
-      Height = 50
+      Left = 291
     end
     inherited btnPrimeiro: TToolButton
-      OnClick = nil
+      Left = 351
+      OnClick = btnPrimeiroClick
     end
     inherited btnLimpar: TToolButton
       OnClick = btnLimparClick
     end
     inherited btnProximo: TToolButton
-      OnClick = nil
+      Left = 455
+      OnClick = btnProximoClick
+    end
+    inherited btnAnterior: TToolButton
+      Left = 404
+      OnClick = btnAnteriorClick
     end
     inherited btnUltimo: TToolButton
-      OnClick = nil
+      Left = 507
+      OnClick = btnUltimoClick
     end
-    inherited ToolButton10: TToolButton
-      Height = 50
+    inherited btnRelatorio: TToolButton
+      Left = 562
     end
     inherited ToolButton13: TToolButton
-      Height = 50
+      Left = 557
     end
     inherited ToolButton15: TToolButton
-      Height = 50
+      Left = 617
+    end
+    inherited btnSair: TToolButton
+      Left = 622
+      OnClick = btnSairClick
+    end
+    inherited btnLog: TToolButton
+      Left = 677
     end
     inherited btnPesquisar: TToolButton
       OnClick = btnPesquisarClick
     end
     inherited ToolButton1: TToolButton
-      Height = 50
-    end
-    inherited ToolButton2: TToolButton
-      Height = 50
+      Left = 672
     end
     inherited btnExcluir: TToolButton
+      Left = 296
       OnClick = btnExcluirClick
     end
     inherited ToolButton3: TToolButton
-      Height = 50
+      Left = 346
     end
   end
   inherited GbBase: TGroupBox
     inherited TsPrincipal: TPageControl
+      ActivePage = TsConsulta
+      TabIndex = 1
       inherited TsCadastro: TTabSheet
-        ClientHeight = 300
-        ClientWidth = 695
-        object DBEdit1: TDBEdit[0]
+        object txtIdEstado: TDBEdit[0]
           Left = 32
           Height = 23
           Top = 40
-          Width = 80
+          Width = 48
           DataField = 'idestado'
           DataSource = DsPadrao
           Alignment = taRightJustify
@@ -75,7 +89,7 @@ inherited frmEstado: TfrmEstado
           MaxLength = 0
           TabOrder = 0
         end
-        object DBEdit2: TDBEdit[1]
+        object txtNomeEstado: TDBEdit[1]
           Left = 32
           Height = 23
           Top = 136
@@ -84,9 +98,9 @@ inherited frmEstado: TfrmEstado
           DataSource = DsPadrao
           CharCase = ecUppercase
           MaxLength = 200
-          TabOrder = 1
+          TabOrder = 2
         end
-        object DBEdit3: TDBEdit[2]
+        object txtSigla: TDBEdit[2]
           Left = 32
           Height = 23
           Top = 88
@@ -95,7 +109,7 @@ inherited frmEstado: TfrmEstado
           DataSource = DsPadrao
           CharCase = ecUppercase
           MaxLength = 8
-          TabOrder = 2
+          TabOrder = 1
         end
         object Label1: TLabel[3]
           Left = 27
@@ -122,11 +136,38 @@ inherited frmEstado: TfrmEstado
           ParentColor = False
         end
       end
+      inherited TsConsulta: TTabSheet
+        ClientHeight = 300
+        ClientWidth = 695
+        object DBGrid1: TDBGrid[0]
+          Left = 8
+          Height = 272
+          Top = 8
+          Width = 360
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'Código'
+              FieldName = 'idestado'
+            end          
+            item
+              Title.Caption = 'Sigla'
+              FieldName = 'siglaestado'
+            end          
+            item
+              Title.Caption = 'Nome'
+              Width = 180
+              FieldName = 'nomeestado'
+            end>
+          DataSource = DsPadrao
+          TabOrder = 0
+        end
+      end
     end
   end
   inherited DsPadrao: TDataSource
     DataSet = QueryEstados
-    OnStateChange = nil
+    OnStateChange = DsPadraoStateChange
   end
   object QueryEstados: TZQuery[4]
     Connection = dmPostgres.PgConexao
