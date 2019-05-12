@@ -1,12 +1,11 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 733
+  Left = 881
   Height = 516
-  Top = 137
+  Top = 144
   Width = 824
   Caption = 'Principal'
   ClientHeight = 496
   ClientWidth = 824
-  Color = clWindow
   Menu = MenuPrincipal
   OnClose = FormClose
   Position = poDesktopCenter
@@ -20,8 +19,10 @@ object frmPrincipal: TfrmPrincipal
     ButtonHeight = 60
     ButtonWidth = 60
     Caption = 'ToolBar1'
+    Color = clWindow
     EdgeBorders = [ebTop, ebBottom]
     Images = ImagensPrincipal
+    ParentColor = False
     TabOrder = 0
     OnClick = ToolBar1Click
     object ToolButton1: TToolButton
@@ -81,7 +82,7 @@ object frmPrincipal: TfrmPrincipal
   end
   object TdiPrincipal: TTDINoteBook
     Left = 0
-    Height = 432
+    Height = 409
     Top = 64
     Width = 824
     TabStop = False
@@ -107,21 +108,190 @@ object frmPrincipal: TfrmPrincipal
     TDIActions.PreviousTab.ImageIndex = 7
     TDIActions.PreviousTab.Visible = False
   end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 473
+    Width = 824
+    Panels = <>
+  end
   object MenuPrincipal: TMainMenu
+    Images = ImagensTDI
     left = 416
     top = 16
     object Cadastros: TMenuItem
       Caption = 'Cadastros'
-      object MiCidades: TMenuItem
-        Caption = 'Cidades'
+      ImageIndex = 4
+      object MenuItem31: TMenuItem
+        Caption = 'Geral'
+        object MenuItem32: TMenuItem
+          Caption = 'Tipo Telefone'
+        end
+      end
+      object MenuItem15: TMenuItem
+        Caption = 'Pessoas'
+        object MenuItem16: TMenuItem
+          Caption = 'Grupos'
+        end
+        object MenuItem17: TMenuItem
+          Caption = 'Pessoas'
+        end
+      end
+      object MenuItem22: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem18: TMenuItem
+        Caption = 'Produtos'
+        object MenuItem21: TMenuItem
+          Caption = 'Produtos'
+        end
+        object MenuItem30: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem24: TMenuItem
+          Caption = 'Unidade de Medida'
+        end
+        object MenuItem19: TMenuItem
+          Caption = 'Grupos'
+        end
+        object MenuItem20: TMenuItem
+          Caption = 'Marcas'
+        end
+        object MenuItem23: TMenuItem
+          Caption = 'Setores'
+        end
+        object MenuItem29: TMenuItem
+          Caption = 'Tipo do Produto'
+        end
+      end
+      object MenuItem45: TMenuItem
+        Caption = '-'
       end
       object miEstados: TMenuItem
         Caption = 'Estados'
         OnClick = miEstadosClick
       end
+      object MiCidades: TMenuItem
+        Caption = 'Cidades'
+        OnClick = MiCidadesClick
+      end
       object MenuItem1: TMenuItem
         Caption = '-'
       end
+      object MenuItem2: TMenuItem
+        Caption = 'Fiscal'
+        object MenuItem4: TMenuItem
+          Caption = 'Ncm Geral'
+          OnClick = MenuItem4Click
+        end
+        object MenuItem5: TMenuItem
+          Caption = 'Ncm de Produtos'
+        end
+        object MenuItem14: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem3: TMenuItem
+          Caption = 'Cfops'
+          OnClick = MenuItem3Click
+        end
+        object MenuItem28: TMenuItem
+          Caption = 'Grupo de Pis/Cofins'
+        end
+        object MenuItem27: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem10: TMenuItem
+          Caption = 'Regime de Tributação'
+        end
+        object MenuItem26: TMenuItem
+          Caption = 'Tributação de Produtos'
+        end
+        object MenuItem25: TMenuItem
+          Caption = 'Tributação por Estado'
+        end
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'Segurança'
+        object MenuItem7: TMenuItem
+          Caption = 'Usuário'
+        end
+        object MenuItem8: TMenuItem
+          Caption = 'Grupo'
+          OnClick = MenuItem8Click
+        end
+        object MenuItem9: TMenuItem
+          Caption = 'Permissões'
+        end
+        object MenuItem11: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem12: TMenuItem
+          Caption = 'Aplicações'
+        end
+        object MenuItem13: TMenuItem
+          Caption = 'Campos Obrigatórios'
+        end
+      end
+      object MenuItem33: TMenuItem
+        Caption = 'Financeiro'
+        object MenuItem34: TMenuItem
+          Caption = 'Operação'
+        end
+        object MenuItem35: TMenuItem
+          Caption = 'Espécie de Pagamento'
+        end
+        object MenuItem36: TMenuItem
+          Caption = 'Operação Por Espécie'
+        end
+        object MenuItem37: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem38: TMenuItem
+          Caption = 'Banco'
+        end
+        object MenuItem39: TMenuItem
+          Caption = 'Agência'
+        end
+        object MenuItem41: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem40: TMenuItem
+          Caption = 'Feriado'
+        end
+      end
+    end
+    object MenuItem42: TMenuItem
+      Caption = 'Saída'
+    end
+    object MenuItem43: TMenuItem
+      Caption = 'Entrada'
+    end
+    object MenuItem44: TMenuItem
+      Caption = 'Financeiro'
+      object MenuItem48: TMenuItem
+        Caption = 'Contas a Pagar'
+      end
+      object MenuItem49: TMenuItem
+        Caption = 'Contas a Receber'
+      end
+    end
+    object MenuItem46: TMenuItem
+      Caption = 'Consulta'
+      object MenuItem50: TMenuItem
+        Caption = 'Saída'
+      end
+      object MenuItem51: TMenuItem
+        Caption = 'Entrada'
+      end
+      object MenuItem53: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem52: TMenuItem
+        Caption = 'Financeiro'
+      end
+    end
+    object MenuItem47: TMenuItem
+      Caption = 'Relatórios'
     end
   end
   object ImagensPrincipal: TImageList

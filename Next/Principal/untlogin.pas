@@ -15,8 +15,8 @@ type
   { TfrmLogin }
 
   TfrmLogin = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
+    btnEntrar: TButton;
+    btnSair: TButton;
     DBComboBox1: TDBComboBox;
     DsEmpresa: TDataSource;
     Image1: TImage;
@@ -32,9 +32,10 @@ type
     txtsenha: TEdit;
     gbLogin: TGroupBox;
     PgQueryLogin: TZReadOnlyQuery;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure btnEntrarClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
   private
 
   public
@@ -52,12 +53,12 @@ implementation
 
 { TfrmLogin }
 
-procedure TfrmLogin.Button2Click(Sender: TObject);
+procedure TfrmLogin.btnSairClick(Sender: TObject);
 begin
   close();
 end;
 
-procedure TfrmLogin.Button1Click(Sender: TObject);
+procedure TfrmLogin.btnEntrarClick(Sender: TObject);
 begin
   PgQueryLogin.Close;
   PgQueryLogin.ParamByName('login').Value:=(txtlogin.Text);
@@ -67,13 +68,11 @@ begin
   if PgQueryLogin.IsEmpty then
   begin
     MessageDlg('Usuário ou senha incorretos!', mtError, [mbYes, mbNo], 0);
-    //ShowMessage('A senha está incorreta!');
   end
   else
   begin
     frmPrincipal.ShowModal;
     frmLogin.Hide;
-    //ShowMessage('OK');
   end;
 end;
 
@@ -115,6 +114,12 @@ begin
     PgQueryEmpresa.Active:=True;
     DsEmpresa.Enabled:=True;
 
+
+end;
+
+
+procedure TfrmLogin.Image1Click(Sender: TObject);
+begin
 
 end;
 

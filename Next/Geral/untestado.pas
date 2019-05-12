@@ -75,7 +75,7 @@ begin
 end;
 
 procedure TfrmEstado.btnPesquisarClick(Sender: TObject);
-  var
+var
   sqlwhere : String;
   i        : Integer;
 begin

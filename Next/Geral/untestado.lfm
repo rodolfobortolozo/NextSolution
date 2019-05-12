@@ -1,10 +1,11 @@
 inherited frmEstado: TfrmEstado
-  Left = 692
-  Top = 246
+  Left = 927
+  Height = 424
+  Top = 294
   Caption = 'Cadastro de Estados'
+  ClientHeight = 424
   OnClose = nil
   OnCreate = FormCreate
-  Position = poMainFormCenter
   inherited ToolBar1: TToolBar
     inherited btnNovo: TToolButton
       OnClick = btnNovoClick
@@ -74,11 +75,8 @@ inherited frmEstado: TfrmEstado
   end
   inherited GbBase: TGroupBox
     inherited TsPrincipal: TPageControl
-      ActivePage = TsConsulta
-      TabIndex = 1
+      Top = -8
       inherited TsCadastro: TTabSheet
-        ClientHeight = 0
-        ClientWidth = 0
         object txtIdEstado: TDBEdit[0]
           Left = 32
           Height = 23
@@ -143,7 +141,7 @@ inherited frmEstado: TfrmEstado
         ClientWidth = 695
         object DBGrid1: TDBGrid[0]
           Left = 8
-          Height = 272
+          Height = 280
           Top = 8
           Width = 360
           Color = clWindow
@@ -171,7 +169,7 @@ inherited frmEstado: TfrmEstado
     DataSet = QueryEstados
     OnStateChange = DsPadraoStateChange
   end
-  object QueryEstados: TZQuery[4]
+  object QueryEstados: TZQuery[6]
     Connection = dmPostgres.PgConexao
     SQL.Strings = (
       'SELECT * FROM GE_Estado'
@@ -180,6 +178,7 @@ inherited frmEstado: TfrmEstado
     left = 666
     top = 122
     object QueryEstadosidestado: TLongintField
+      Alignment = taLeftJustify
       FieldKind = fkData
       FieldName = 'idestado'
       Index = 0

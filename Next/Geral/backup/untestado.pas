@@ -51,15 +51,15 @@ implementation
 procedure TfrmEstado.FormCreate(Sender: TObject);
 begin
   inherited;
-    //ativar a query pois da erro de
+  //ativar a query pois da erro de
   //operation cannot be performed on an inactive data set se ela tiver ativa
-   queryestados.Active:=True;
+  QueryEstados.Active:=True;
 
-   //INICIAR O DS PARA PESQUISA
+  //INICIAR O DS PARA PESQUISA
   queryestados.Close;
-  queryestados.SQL.Clear;
-  queryestados.SQL.Add('SELECT * FROM GE_Estado WHERE 0>0');
-  queryestados.Open;
+  QueryEstados.SQL.Clear;
+  QueryEstados.SQL.Add('SELECT * FROM GE_Estado WHERE 0>0');
+  QueryEstados.Open;
   DSPadrao.DataSet.Insert();
 end;
 
@@ -67,15 +67,15 @@ procedure TfrmEstado.btnLimparClick(Sender: TObject);
 begin
   inherited;
   //pra entrar no modo de inserção
-  queryestados.Close;
-  queryestados.SQL.Clear;
-  queryestados.SQL.Add('SELECT * FROM GE_Estado WHERE 0>0');
-  queryestados.Open;
+  QueryEstados.Close;
+  QueryEstados.SQL.Clear;
+  QueryEstados.SQL.Add('SELECT * FROM GE_Estado WHERE 0>0');
+  QueryEstados.Open;
   DSPadrao.DataSet.Insert();
 end;
 
 procedure TfrmEstado.btnPesquisarClick(Sender: TObject);
-  var
+var
   sqlwhere : String;
   i        : Integer;
 begin
@@ -95,9 +95,9 @@ begin
             DSPadrao.DataSet.Fields[i].AsString + '%''';
     end;
    //Executa a pesquisa
-  queryestados.Close;
-  queryestados.SQL.Clear;
-  queryestados.SQL.Add('SELECT * FROM GE_Estado'+sqlwhere+' ORDER BY IdEstado ASC');
+  QueryEstados.Close;
+  QueryEstados.SQL.Clear;
+  QueryEstados.SQL.Add('SELECT * FROM GE_Estado'+sqlwhere+' ORDER BY IdEstado ASC');
   QueryEstados.ExecSQL;
   QueryEstados.Open;
 end;

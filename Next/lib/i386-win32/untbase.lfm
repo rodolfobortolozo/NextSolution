@@ -1,20 +1,21 @@
 object frmBase: TfrmBase
-  Left = 938
-  Height = 406
-  Top = 212
-  Width = 736
+  Left = 933
+  Height = 425
+  Top = 133
+  Width = 747
   Caption = 'Frmbase'
-  ClientHeight = 406
-  ClientWidth = 736
+  ClientHeight = 425
+  ClientWidth = 747
+  KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
-  Position = poDesktopCenter
+  Position = poMainFormCenter
   LCLVersion = '2.0.2.0'
   object ToolBar1: TToolBar
     Left = 1
     Height = 52
     Top = 1
-    Width = 734
+    Width = 745
     BorderSpacing.Around = 1
     ButtonHeight = 50
     ButtonWidth = 50
@@ -29,6 +30,7 @@ object frmBase: TfrmBase
       Caption = 'Novo'
       ImageIndex = 7
       OnClick = btnNovoClick
+      Visible = False
     end
     object btnInserir: TToolButton
       Left = 174
@@ -50,6 +52,7 @@ object frmBase: TfrmBase
       Top = 0
       Caption = 'ToolButton4'
       Style = tbsDivider
+      Visible = False
     end
     object ToolButton5: TToolButton
       Left = 224
@@ -138,6 +141,7 @@ object frmBase: TfrmBase
       Top = 0
       Caption = 'Log'
       ImageIndex = 6
+      Visible = False
     end
     object btnPesquisar: TToolButton
       Left = 56
@@ -151,6 +155,7 @@ object frmBase: TfrmBase
       Top = 0
       Caption = 'ToolButton1'
       Style = tbsDivider
+      Visible = False
     end
     object ToolButton2: TToolButton
       Left = 51
@@ -176,16 +181,16 @@ object frmBase: TfrmBase
   end
   object GbBase: TGroupBox
     Left = 8
-    Height = 344
+    Height = 360
     Top = 56
-    Width = 720
-    ClientHeight = 324
-    ClientWidth = 716
+    Width = 736
+    ClientHeight = 340
+    ClientWidth = 732
     TabOrder = 1
     object TsPrincipal: TPageControl
-      Left = 8
+      Left = 16
       Height = 328
-      Top = -8
+      Top = 0
       Width = 703
       ActivePage = TsCadastro
       TabIndex = 0
@@ -1485,5 +1490,108 @@ object frmBase: TfrmBase
     OnStateChange = DsPadraoStateChange
     left = 504
     top = 64
+  end
+  object DScampoObrig: TDataSource
+    DataSet = QueryCampoObrig
+    OnStateChange = DsPadraoStateChange
+    left = 264
+    top = 64
+  end
+  object QueryCampoObrig: TZReadOnlyQuery
+    Connection = dmPostgres.PgConexao
+    SQL.Strings = (
+      'SELECT * FROM GE_Aplicacao a, GE_CampoObrigatorio c'
+      'where a.IdAplicacao = c.IdAplicacao'
+    )
+    Params = <>
+    left = 360
+    top = 64
+    object QueryCampoObrigidcampoobrigatorio: TLongintField
+      FieldKind = fkData
+      FieldName = 'idcampoobrigatorio'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryCampoObrignomecampo: TStringField
+      FieldKind = fkData
+      FieldName = 'nomecampo'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object QueryCampoObrigidaplicacao: TLongintField
+      FieldKind = fkData
+      FieldName = 'idaplicacao'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QueryCampoObrigmensagem: TStringField
+      FieldKind = fkData
+      FieldName = 'mensagem'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 240
+    end
+    object QueryCampoObrigativo: TStringField
+      FieldKind = fkData
+      FieldName = 'ativo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object QueryCampoObrigdescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 240
+    end
+    object QueryCampoObrigform: TStringField
+      FieldKind = fkData
+      FieldName = 'form'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object QueryCampoObrigunit: TStringField
+      FieldKind = fkData
+      FieldName = 'unit'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object QueryCampoObrigidaplicacao_1: TLongintField
+      FieldKind = fkData
+      FieldName = 'idaplicacao_1'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

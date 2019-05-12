@@ -7,8 +7,9 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, tachartlazaruspkg, runtimetypeinfocontrols, pascalscript, zcomponent,
-  untLogin, dmPrincipal, untBase, untPrincipal, untEstado;
+  Forms, runtimetypeinfocontrols, pascalscript, zcomponent, untLogin,
+  dmPrincipal, untBase, untPrincipal, untEstado, untCidade, untCfop, untNcm,
+  untGrupoPermissao, unit1;
 
 {$R *.res}
 
@@ -19,8 +20,6 @@ begin
   Application.CreateForm(TdmPostgres, dmPostgres);
   Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmBase, frmBase);
-  Application.CreateForm(TfrmEstado, frmEstado);
   Application.Run;
 end.
 

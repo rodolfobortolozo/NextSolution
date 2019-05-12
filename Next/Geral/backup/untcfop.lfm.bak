@@ -1,0 +1,195 @@
+inherited frmCfop: TfrmCfop
+  Left = 934
+  Height = 512
+  Top = 191
+  Caption = 'Cadastro de Cfops'
+  ClientHeight = 512
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  inherited ToolBar1: TToolBar
+    inherited btnLimpar: TToolButton
+      OnClick = btnLimparClick
+    end
+    inherited btnPesquisar: TToolButton
+      OnClick = btnPesquisarClick
+    end
+  end
+  inherited GbBase: TGroupBox
+    Height = 440
+    ClientHeight = 420
+    inherited TsPrincipal: TPageControl
+      Height = 408
+      inherited TsCadastro: TTabSheet
+        ClientHeight = 380
+        object txtCodigo: TLabel[0]
+          Left = 27
+          Height = 15
+          Top = 25
+          Width = 29
+          Caption = 'Cfop:'
+          ParentColor = False
+        end
+        object txtIdCidade: TDBEdit[1]
+          Left = 32
+          Height = 23
+          Top = 40
+          Width = 48
+          DataField = 'cfop'
+          DataSource = DsPadrao
+          Alignment = taRightJustify
+          CharCase = ecUppercase
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Label3: TLabel[2]
+          Left = 27
+          Height = 15
+          Top = 72
+          Width = 54
+          Caption = 'Descrição:'
+          ParentColor = False
+        end
+        object GroupBox1: TGroupBox[3]
+          Left = 32
+          Height = 153
+          Top = 208
+          Width = 257
+          Caption = 'Tipo'
+          ClientHeight = 133
+          ClientWidth = 253
+          TabOrder = 1
+          object DBCheckBox1: TDBCheckBox
+            Left = 16
+            Height = 23
+            Top = 8
+            Width = 90
+            Caption = 'NFe'
+            DataField = 'nfe'
+            DataSource = DsPadrao
+            TabOrder = 0
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+          object DBCheckBox2: TDBCheckBox
+            Left = 16
+            Height = 23
+            Top = 36
+            Width = 90
+            Caption = 'Delovução'
+            DataField = 'devolucao'
+            DataSource = DsPadrao
+            TabOrder = 1
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+          object DBCheckBox3: TDBCheckBox
+            Left = 16
+            Height = 23
+            Top = 72
+            Width = 90
+            Caption = 'Comunicação'
+            DataField = 'comunicaco'
+            DataSource = DsPadrao
+            TabOrder = 2
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+          object DBCheckBox4: TDBCheckBox
+            Left = 16
+            Height = 23
+            Top = 104
+            Width = 90
+            Caption = 'Transportadora'
+            DataField = 'transportadora'
+            DataSource = DsPadrao
+            TabOrder = 3
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+          end
+        end
+        object DBMemo1: TDBMemo[4]
+          Left = 32
+          Height = 106
+          Top = 88
+          Width = 448
+          CharCase = ecUppercase
+          DataField = 'descricao'
+          DataSource = DsPadrao
+          TabOrder = 2
+        end
+      end
+    end
+  end
+  inherited DsPadrao: TDataSource
+    DataSet = QueryCfops
+  end
+  object QueryCfops: TZQuery[4]
+    Connection = dmPostgres.PgConexao
+    SQL.Strings = (
+      'SELECT * FROM GE_Cfop'
+    )
+    Params = <>
+    left = 694
+    top = 150
+    object QueryCfopscfop: TLongintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'cfop'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryCfopsdescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object QueryCfopsnfe: TStringField
+      FieldKind = fkData
+      FieldName = 'nfe'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object QueryCfopscomunicaco: TStringField
+      FieldKind = fkData
+      FieldName = 'comunicaco'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object QueryCfopstransportadora: TStringField
+      FieldKind = fkData
+      FieldName = 'transportadora'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object QueryCfopsdevolucao: TStringField
+      FieldKind = fkData
+      FieldName = 'devolucao'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+  end
+end

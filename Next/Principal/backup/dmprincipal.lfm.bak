@@ -13,6 +13,7 @@ object dmPostgres: TdmPostgres
     Properties.Strings = (
       'codepage=UTF8'
     )
+    Connected = True
     HostName = 'localhost'
     Port = 5432
     Database = 'datasoft'
@@ -24,7 +25,6 @@ object dmPostgres: TdmPostgres
     top = 8
   end
   object PgMonitor: TZSQLMonitor
-    Active = True
     AutoSave = True
     FileName = 'D:\Projeto\NextSolutions\Analise Banco\Teste.txt'
     MaxTraceCount = 100

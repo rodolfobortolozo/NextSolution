@@ -1,0 +1,141 @@
+inherited frmGrupoPermissao: TfrmGrupoPermissao
+  Left = 552
+  Top = 208
+  Caption = 'Cadastro Grupo de Permissão'
+  OnCreate = FormCreate
+  inherited ToolBar1: TToolBar
+    inherited btnLimpar: TToolButton
+      OnClick = btnLimparClick
+    end
+    inherited btnPesquisar: TToolButton
+      OnClick = btnPesquisarClick
+    end
+  end
+  inherited GbBase: TGroupBox
+    inherited TsPrincipal: TPageControl
+      inherited TsCadastro: TTabSheet
+        object Label1: TLabel[0]
+          Left = 27
+          Height = 15
+          Top = 25
+          Width = 42
+          Caption = 'Código:'
+          ParentColor = False
+        end
+        object txtIdGrupoPermissao: TDBEdit[1]
+          Left = 32
+          Height = 23
+          Top = 40
+          Width = 48
+          DataField = 'idgrupopermissao'
+          DataSource = DsPadrao
+          Alignment = taRightJustify
+          CharCase = ecUppercase
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Label2: TLabel[2]
+          Left = 27
+          Height = 15
+          Top = 72
+          Width = 36
+          Caption = 'Nome:'
+          ParentColor = False
+        end
+        object txtSigla: TDBEdit[3]
+          Left = 32
+          Height = 23
+          Top = 88
+          Width = 216
+          DataField = 'descricao'
+          DataSource = DsPadrao
+          CharCase = ecUppercase
+          MaxLength = 8
+          TabOrder = 1
+        end
+        object DBCheckBox1: TDBCheckBox[4]
+          Left = 112
+          Height = 23
+          Top = 40
+          Width = 90
+          Caption = 'Inativo'
+          DataField = 'ativo'
+          DataSource = DsPadrao
+          TabOrder = 2
+          ValueChecked = 'N'
+          ValueUnchecked = 'S'
+        end
+      end
+      inherited TsConsulta: TTabSheet
+        ClientHeight = 300
+        ClientWidth = 695
+        object DBGrid1: TDBGrid[0]
+          Left = 8
+          Height = 280
+          Top = 8
+          Width = 680
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'Código'
+              FieldName = 'idgrupopermissao'
+            end          
+            item
+              Title.Caption = 'Grupo'
+              Width = 500
+              FieldName = 'descricao'
+            end>
+          DataSource = DsPadrao
+          TabOrder = 0
+        end
+      end
+    end
+  end
+  inherited ImagensFrmBase: TImageList
+    left = 480
+    top = 80
+  end
+  inherited DsPadrao: TDataSource
+    DataSet = QueryGrupoPermissao
+    left = 400
+    top = 80
+  end
+  object QueryGrupoPermissao: TZQuery[4]
+    Connection = dmPostgres.PgConexao
+    SQL.Strings = (
+      'SELECT * FROM SE_GrupoPermissao'
+    )
+    Params = <>
+    left = 600
+    top = 80
+    object QueryGrupoPermissaoidgrupopermissao: TLongintField
+      FieldKind = fkData
+      FieldName = 'idgrupopermissao'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryGrupoPermissaodescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object QueryGrupoPermissaoativo: TStringField
+      FieldKind = fkData
+      FieldName = 'ativo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+  end
+end

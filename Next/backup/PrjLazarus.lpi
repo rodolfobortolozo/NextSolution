@@ -15,6 +15,12 @@
       </XPManifest>
       <Icon Value="0"/>
     </General>
+    <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <MajorVersionNr Value="1"/>
+      <Language Value="0416"/>
+      <StringTable CompanyName="Next Solutions" InternalName="Lazarus" ProductName="Next Solutions"/>
+    </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
     </BuildModes>
@@ -49,7 +55,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="10">
       <Unit0>
         <Filename Value="PrjLazarus.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -94,6 +100,38 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="untEstado"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="Geral\untcidade.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCidade"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untCidade"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="Geral\untcfop.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCfop"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untCfop"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="Geral\untncm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmNcm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untNcm"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="Segurança\untgrupopermissao.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGrupoPermissao"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untGrupoPermissao"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -104,7 +142,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="Principal;Geral"/>
+      <OtherUnitFiles Value="Principal;Geral;Segurança"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

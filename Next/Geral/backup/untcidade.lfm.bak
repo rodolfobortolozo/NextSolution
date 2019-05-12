@@ -1,0 +1,339 @@
+inherited frmCidade: TfrmCidade
+  Left = 965
+  Height = 420
+  Top = 34
+  Caption = 'Cadastro de Cidades'
+  ClientHeight = 420
+  OnCreate = FormCreate
+  OnKeyDown = nil
+  Position = poDesktopCenter
+  inherited ToolBar1: TToolBar
+    inherited btnLimpar: TToolButton
+      OnClick = btnLimparClick
+    end
+    inherited btnRelatorio: TToolButton
+      OnClick = btnRelatorioClick
+    end
+    inherited btnPesquisar: TToolButton
+      OnClick = btnPesquisarClick
+    end
+  end
+  inherited GbBase: TGroupBox
+    Height = 352
+    ClientHeight = 332
+    inherited TsPrincipal: TPageControl
+      Top = -8
+      inherited TsCadastro: TTabSheet
+        object txtCodigo: TLabel[0]
+          Left = 27
+          Height = 15
+          Top = 25
+          Width = 42
+          Caption = 'Código:'
+          ParentColor = False
+        end
+        object txtIdCidade: TDBEdit[1]
+          Left = 32
+          Height = 23
+          Top = 40
+          Width = 48
+          DataField = 'idcidade'
+          DataSource = DsPadrao
+          Alignment = taRightJustify
+          CharCase = ecUppercase
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Label2: TLabel[2]
+          Left = 27
+          Height = 15
+          Top = 120
+          Width = 26
+          Caption = 'Ibge:'
+          ParentColor = False
+        end
+        object txtIbege: TDBEdit[3]
+          Left = 32
+          Height = 23
+          Top = 136
+          Width = 80
+          DataField = 'codigoibege'
+          DataSource = DsPadrao
+          CharCase = ecUppercase
+          MaxLength = 8
+          TabOrder = 2
+        end
+        object Label3: TLabel[4]
+          Left = 27
+          Height = 15
+          Top = 72
+          Width = 40
+          Caption = 'Cidade:'
+          ParentColor = False
+        end
+        object txtNomeCidade: TDBEdit[5]
+          Left = 32
+          Height = 23
+          Top = 88
+          Width = 261
+          DataField = 'nomecidade'
+          DataSource = DsPadrao
+          CharCase = ecUppercase
+          MaxLength = 200
+          TabOrder = 1
+        end
+        object Label4: TLabel[6]
+          Left = 32
+          Height = 15
+          Top = 168
+          Width = 38
+          Caption = 'Estado:'
+          ParentColor = False
+        end
+        object cbEstado: TDBLookupComboBox[7]
+          Left = 88
+          Height = 23
+          Top = 184
+          Width = 168
+          DataField = 'nomeestado'
+          DataSource = DsPadrao
+          ListFieldIndex = 0
+          LookupCache = False
+          TabOrder = 4
+        end
+        object cbPais: TDBLookupComboBox[8]
+          Left = 88
+          Height = 23
+          Top = 232
+          Width = 168
+          DataField = 'nomepais'
+          DataSource = DsPadrao
+          ListFieldIndex = 0
+          LookupCache = False
+          TabOrder = 6
+        end
+        object Label5: TLabel[9]
+          Left = 32
+          Height = 15
+          Top = 216
+          Width = 24
+          Caption = 'País:'
+          ParentColor = False
+        end
+        object txtIdCidade2: TDBEdit[10]
+          Left = 32
+          Height = 23
+          Top = 184
+          Width = 48
+          DataField = 'siglaestado'
+          DataSource = DsPadrao
+          Alignment = taRightJustify
+          CharCase = ecUppercase
+          MaxLength = 0
+          TabOrder = 3
+        end
+        object txtIdCidade3: TDBEdit[11]
+          Left = 32
+          Height = 23
+          Top = 232
+          Width = 48
+          DataField = 'idpais'
+          DataSource = DsPadrao
+          Alignment = taRightJustify
+          CharCase = ecUppercase
+          MaxLength = 0
+          TabOrder = 5
+        end
+      end
+      inherited TsConsulta: TTabSheet
+        ClientHeight = 300
+        ClientWidth = 695
+        object DBGrid1: TDBGrid[0]
+          Left = 8
+          Height = 280
+          Top = 8
+          Width = 680
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'Código'
+              FieldName = 'idcidade'
+            end          
+            item
+              Title.Caption = 'Cidade'
+              Width = 200
+              FieldName = 'nomecidade'
+            end          
+            item
+              Title.Caption = 'Estado'
+              Width = 180
+              FieldName = 'nomeestado'
+            end          
+            item
+              Title.Caption = 'País'
+              Width = 150
+              FieldName = 'nomepais'
+            end>
+          DataSource = DsPadrao
+          TabOrder = 0
+        end
+      end
+    end
+  end
+  inherited DsPadrao: TDataSource
+    DataSet = QueryCidades
+  end
+  object QueryCidades: TZQuery[6]
+    Connection = dmPostgres.PgConexao
+    SQL.Strings = (
+      'SELECT * FROM GE_Cidade'
+    )
+    Params = <>
+    left = 672
+    top = 136
+    object QueryCidadesidcidade: TLongintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'idcidade'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryCidadesnomecidade: TStringField
+      FieldKind = fkData
+      FieldName = 'nomecidade'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object QueryCidadessiglaestado: TStringField
+      FieldKind = fkData
+      FieldName = 'siglaestado'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object QueryCidadescodigoibege: TLongintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'codigoibege'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object QueryCidadesidpais: TLongintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'idpais'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object StringField1: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nomeestado'
+      Index = 5
+      KeyFields = 'siglaestado'
+      LookupCache = False
+      LookupDataSet = QueryEstados
+      LookupKeyFields = 'siglaestado'
+      LookupResultField = 'nomeestado'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object StringField2: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nomepais'
+      Index = 6
+      KeyFields = 'idpais'
+      LookupCache = False
+      LookupDataSet = QueryPaises
+      LookupKeyFields = 'idpais'
+      LookupResultField = 'nomepais'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+  end
+  object QueryEstados: TZQuery[7]
+    Connection = dmPostgres.PgConexao
+    SQL.Strings = (
+      'SELECT * FROM GE_Estado'
+    )
+    Params = <>
+    left = 672
+    top = 208
+    object QueryEstadosidestado: TLongintField
+      FieldKind = fkData
+      FieldName = 'idestado'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryEstadossiglaestado: TStringField
+      FieldKind = fkData
+      FieldName = 'siglaestado'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object QueryEstadosnomeestado: TStringField
+      FieldKind = fkData
+      FieldName = 'nomeestado'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+  end
+  object QueryPaises: TZQuery[8]
+    Connection = dmPostgres.PgConexao
+    SQL.Strings = (
+      'SELECT * FROM GE_Pais'
+    )
+    Params = <>
+    left = 672
+    top = 280
+    object QueryPaisesidpais: TLongintField
+      FieldKind = fkData
+      FieldName = 'idpais'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object QueryPaisesnomepais: TStringField
+      FieldKind = fkData
+      FieldName = 'nomepais'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+  end
+end
